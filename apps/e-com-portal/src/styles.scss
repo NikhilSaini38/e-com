@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --primary-navbar-height: 3rem;
+  --theme-color-primary: #4ea60b;
+  --theme-color-secondary: #8b8a96;
+  --theme-color-tertiary: #e8e8e8;
+  --theme-color-backdrop: #ffffff;
+  --theme-color-danger: #e33047;
+  --theme-color-black: #0d0d0d;
+}
+
+html,body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.f-row{
+  display:flex;
+  flex-direction: row;
+}
+
+.f-col{
+  display:flex;
+  flex-direction: column;
+}
+
+.f-grow{
+  flex-grow: 1;
+}
+
+.col-spacer-half{
+  width: 0.5 rem
+}
+
+.col-spacer-1{
+  width: 1 rem
+}
+.col-spacer-2{
+  width: 2 rem
+}

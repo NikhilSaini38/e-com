@@ -4,12 +4,15 @@
  */
 
 import * as express from 'express';
+import path = require('path');
 
 const app = express();
 
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to e-com-api!' });
 });
+
+app.use('/public', express.static(path.join(__dirname, 'assets/public')));
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {

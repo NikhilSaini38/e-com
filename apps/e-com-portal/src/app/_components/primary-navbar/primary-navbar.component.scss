@@ -1,0 +1,23 @@
+.navbar{
+  align-items: center;
+  width: 100%;
+  background: linear-gradient(135deg, var(--theme-color-backdrop),var(--theme-color-tertiary),var(--theme-color-primary) 50%);
+  border: none;
+  height: var(--primary-navbar-height);
+  img{
+    max-height: 100%;
+  }
+  button{
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    background-color: #0000;
+    border: solid 2px #0000;
+    border-radius: 3px;
+    font-size: small;
+    transition: all 200ms;
+    &:hover,&.active{
+      border-color: var(--theme-color-black);
+    }
+  }
+}

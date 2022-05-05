@@ -5,9 +5,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/e-com-ui"
-      ],
+      "outputs": ["coverage/libs/e-com-ui"],
       "options": {
         "jestConfig": "libs/e-com-ui/jest.config.ts",
         "passWithNoTests": true
@@ -16,10 +14,40 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "libs/e-com-ui/**/*.ts",
-          "libs/e-com-ui/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/e-com-ui/**/*.ts", "libs/e-com-ui/**/*.html"]
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "port": 4400,
+        "config": {
+          "configFolder": "libs/e-com-ui/.storybook"
+        },
+        "projectBuildConfig": "e-com-ui:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "outputPath": "dist/storybook/e-com-ui",
+        "config": {
+          "configFolder": "libs/e-com-ui/.storybook"
+        },
+        "projectBuildConfig": "e-com-ui:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
       }
     }
   },

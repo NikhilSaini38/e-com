@@ -1,0 +1,27 @@
+{
+  "sourceRoot": "apps/e-com-ui-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/e-com-ui-e2e/cypress.json",
+        "devServerTarget": "e-com-ui:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "e-com-ui:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/e-com-ui-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["e-com-ui"]
+}
