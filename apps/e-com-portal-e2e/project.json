@@ -1,0 +1,27 @@
+{
+  "sourceRoot": "apps/e-com-portal-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/e-com-portal-e2e/cypress.json",
+        "devServerTarget": "e-com-portal:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "e-com-portal:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/e-com-portal-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["e-com-portal"]
+}

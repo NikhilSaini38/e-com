@@ -1,0 +1,27 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/e-com-ui/src",
+  "prefix": "ecui",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/e-com-ui"
+      ],
+      "options": {
+        "jestConfig": "libs/e-com-ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/e-com-ui/**/*.ts",
+          "libs/e-com-ui/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

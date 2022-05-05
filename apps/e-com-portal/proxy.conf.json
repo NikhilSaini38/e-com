@@ -1,0 +1,10 @@
+{
+  "/e-com-api": {
+    "target": "http://localhost:3333",
+    "secure": false
+  },
+  "/e-com-api-api": {
+    "target": "http://localhost:3333",
+    "secure": false
+  }
+}
