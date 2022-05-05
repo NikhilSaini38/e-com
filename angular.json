@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "e-com": "apps/e-com",
+    "e-com-e2e": "apps/e-com-e2e"
+  }
+}
