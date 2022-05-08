@@ -1,11 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "data-models": "libs/data-models",
-    "e-com-api": "apps/e-com-api",
     "e-com-portal": "apps/e-com-portal",
-    "e-com-portal-e2e": "apps/e-com-portal-e2e",
-    "e-com-ui": "libs/e-com-ui",
-    "e-com-ui-e2e": "apps/e-com-ui-e2e"
+    "e-com-portal-e2e": "apps/e-com-portal-e2e"
   }
 }

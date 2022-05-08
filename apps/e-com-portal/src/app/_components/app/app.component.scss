@@ -1,0 +1,10 @@
+:host{
+  display: block;
+
+  .container{
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    min-height: calc(100vh - var(--primary-navbar-height));
+  }
+}

@@ -1,25 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { EComUiModule } from '@e-com/ui';
 import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { HomeComponent } from './_components/home/home.component';
-import { PrimaryNavbarComponent } from './_components/primary-navbar/primary-navbar.component';
+import { AppComponent } from './_components/app/app.component';
 import { NotFoundPageComponent } from './_components/not-found-page/not-found-page.component';
-import { CompareComponent } from './_components/compare/compare.component';
+import { PrimaryNavbarComponent } from './_components/primary-navbar/primary-navbar.component';
+import { HomeModule } from './_modules/home/home.module';
+import { ProductsModule } from './_modules/products/products.module';
+import { ProductsMockDataService } from './_services/products-mock-data.service';
 @NgModule({
   declarations: [
     AppComponent,
-    NxWelcomeComponent,
     PrimaryNavbarComponent,
-    HomeComponent,
-    NotFoundPageComponent,
-    CompareComponent,
+    NotFoundPageComponent
   ],
-  imports: [BrowserModule, EComUiModule, AppRoutingModule],
-  providers: [{ provide: 'ENV', useValue: environment }],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HomeModule,
+    ProductsModule],
+  providers: [
+    { provide: 'ENV', useValue: environment },
+    ProductsMockDataService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

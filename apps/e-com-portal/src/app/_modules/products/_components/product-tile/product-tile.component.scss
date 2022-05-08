@@ -1,0 +1,39 @@
+:host{
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding:1.125rem 1.5rem;
+  width: 300px;
+  height: 398px;
+  box-shadow: 1px 1px 3px #00000026;
+  border: 2px solid #e5ebf2;
+  &>p{
+    text-align: center;
+  }
+  &>hr{
+    width: 100%;
+    border: solid 0.5px var(--theme-color-tertiary);
+  }
+  .image-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    max-height: 15.5rem;
+    img{
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  h2{
+    margin: 0;
+    color: var(--theme-color-primary);
+  }
+
+  h5{
+    margin: 0;
+    color: var(--theme-color-danger);
+  }
+}

@@ -1,13 +1,12 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'ecp-primary-navbar',
   templateUrl: './primary-navbar.component.html',
   styleUrls: ['./primary-navbar.component.scss'],
 })
-export class PrimaryNavbarComponent implements OnInit {
+export class PrimaryNavbarComponent {
   constructor(
     @Inject('ENV') public env: { [key: string]: string }
   ) { }
-  ngOnInit(): void { }
 }
