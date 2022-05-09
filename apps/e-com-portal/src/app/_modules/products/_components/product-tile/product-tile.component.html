@@ -1,13 +1,18 @@
 <div class="image-container">
-  <img
-    src="https://www.andoo.com.au/public/images/product/ws-203-05-coal-01/extrnl/Kalona-KAUAI-Loveseat-Coal-WS-203-05-COAL-01-2-grid.png"
-    alt="Image">
+  <img [src]="(product$|async)?.image" [alt]="(product$|async)?.name" />
 </div>
-<p>Kalona KAUAI Two Seater Sofa Coal WS-203-05-COAL-01</p>
+<p>{{ (product$|async)?.name }}</p>
 <div class="f-grow"></div>
 <hr />
 <div class="f-row f-align-center">
-  <h2>{{1089|currency}}</h2>
+  <h2>{{ (product$|async)?.price | currency }}</h2>
   <div class="f-grow"></div>
-  <h5>{{290|currency}} off RRP of {{1089+290|currency}}</h5>
+  <h5 *ngIf="product$|async as product">
+    {{ product.rrp - product.price | currency }} off RRP of
+    {{ product.rrp | currency }}
+  </h5>
+</div>
+<div class="button-group f-row">
+  <button class="primary" (click)="addToCart()">Add to Cart</button>
+  <button>Compare</button>
 </div>

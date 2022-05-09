@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsMockDataService } from './../../../../_services/products-mock-data.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Product } from './../../../../_models/product-model';
+import { AppState } from './../../../../_store/app.state';
+import { loadProducts } from './../../../../_store/products/products.actions';
+import { selectProducts } from './../../../../_store/products/products.selectors';
 
 @Component({
   selector: 'ecp-products-page',
@@ -7,9 +12,15 @@ import { ProductsMockDataService } from './../../../../_services/products-mock-d
   styleUrls: ['./products-page.component.scss'],
 })
 export class ProductsPageComponent implements OnInit {
-  constructor(private mockDataService: ProductsMockDataService) { }
 
-  products = this.mockDataService.getMockData();
+  products: Observable<Product[]> = this.store.select(selectProducts);
 
-  ngOnInit(): void { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
+
+  ngOnInit(): void {
+    this.store.dispatch(loadProducts())
+  }
+
 }

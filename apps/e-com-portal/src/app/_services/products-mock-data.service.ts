@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 export type Product = {
   sku: string,
@@ -65,7 +66,7 @@ const mockData: Product[] = [
   providedIn: 'root'
 })
 export class ProductsMockDataService {
-  getMockData(): Product[] {
-    return mockData;
+  getMockData(): Observable<Product[]> {
+    return of(mockData);
   }
 }

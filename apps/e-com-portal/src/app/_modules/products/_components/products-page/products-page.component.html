@@ -1,14 +1,1 @@
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
-<ecp-product-tile></ecp-product-tile>
+<ecp-product-tile *ngFor="let product of products|async" [sku]="product.sku"> </ecp-product-tile>

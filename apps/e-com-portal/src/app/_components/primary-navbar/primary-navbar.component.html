@@ -2,5 +2,6 @@
   <img [draggable]="false" src="assets/e-com-logo.png" alt="" />
   <button routerLink="home" routerLinkActive="active">Home</button>
   <button routerLink="products" routerLinkActive="active">Products</button>
-  <!-- <button routerLink="compare" routerLinkActive="active">Compare</button> -->
+  <div class="f-grow"></div>
+  <button routerLink="cart" routerLinkActive="active">Cart({{(cartItems|async)?.length}})</button>
 </div>
