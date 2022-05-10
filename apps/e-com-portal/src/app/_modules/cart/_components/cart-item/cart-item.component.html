@@ -1,0 +1,12 @@
+<div class="cart-item f-row">
+  <div class="image-container">
+    <img [src]="(cartItem$|async)?.image" [alt]="(cartItem$|async)?.name">
+  </div>
+  <div class="f-grow"></div>
+  <p>
+    {{(cartItem$|async)?.name}}
+  </p>
+  <div class="f-grow"></div>
+  <h5>{{(cartItem$|async)?.rrp|currency}}</h5>
+  <h2>{{(cartItem$|async)?.price|currency}}</h2>
+</div>

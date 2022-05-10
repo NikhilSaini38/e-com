@@ -10,10 +10,10 @@ import { selectCartItems } from './../../../../_store/cart/cart.selectors';
 })
 export class CartPageComponent implements OnInit {
 
-  cartItems = this.store.select(selectCartItems)
+  cartItems = this._store.select(selectCartItems)
 
   constructor(
-    private store: Store<AppState>
+    private _store: Store<AppState>
   ) { }
 
   ngOnInit(): void { }

@@ -1,0 +1,23 @@
+div.cart-item{
+  border: solid 1px var(--theme-color-tertiary) ;
+  align-items: center;
+
+  div.image-container{
+    height: 100px;
+    width: 100px;
+
+    img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  h5{
+    text-decoration: line-through;
+    color: var(--theme-color-danger);
+  }
+
+  h2{
+    color: var(--theme-color-primary);
+  }
+}

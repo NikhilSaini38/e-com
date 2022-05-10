@@ -11,18 +11,17 @@ import { PrimaryNavbarComponent } from './_components/primary-navbar/primary-nav
 import { HomeModule } from './_modules/home/home.module';
 import { ProductsModule } from './_modules/products/products.module';
 import { storeFeatures } from './_store/app.state';
+import { CartEffects } from './_store/cart/cart.effects';
 import { ProductsStoreEffects } from './_store/products/products.effects';
 
-const EFFECTS = [
-  ProductsStoreEffects
-]
+const EFFECTS = [ProductsStoreEffects, CartEffects];
 
 @NgModule({
   declarations: [
     AppComponent,
     PrimaryNavbarComponent,
     NotFoundPageComponent,
-    ModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -30,12 +29,9 @@ const EFFECTS = [
     HomeModule,
     ProductsModule,
     StoreModule.forRoot(storeFeatures),
-    EffectsModule.forRoot([...EFFECTS])
+    EffectsModule.forRoot([...EFFECTS]),
   ],
-  providers: [
-    { provide: 'ENV', useValue: environment },
-    // ProductsMockDataService,
-  ],
+  providers: [{ provide: 'ENV', useValue: environment }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

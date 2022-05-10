@@ -1,1 +1,12 @@
-<p>modal works!</p>
+<ng-container *ngIf="modalState$ | async as state">
+  <section [class.open]="state.opened"
+           (click)="close()">
+    <div (click)="$event.stopPropagation()">
+      <button class="close"
+              type="button"
+              (click)="close()">X</button>
+      <h3>Added to Cart</h3>
+      <h2>{{state.productName}}</h2>
+    </div>
+  </section>
+</ng-container>

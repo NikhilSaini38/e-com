@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Product } from './../../../../_models/product-model';
 import { AppState } from './../../../../_store/app.state';
-import { loadProducts } from './../../../../_store/products/products.actions';
 import { selectProducts } from './../../../../_store/products/products.selectors';
 
 @Component({
@@ -13,14 +12,12 @@ import { selectProducts } from './../../../../_store/products/products.selectors
 })
 export class ProductsPageComponent implements OnInit {
 
-  products: Observable<Product[]> = this.store.select(selectProducts);
+  products: Observable<Product[]> = this._store.select(selectProducts);
 
   constructor(
-    private store: Store<AppState>
+    private _store: Store<AppState>
   ) { }
 
-  ngOnInit(): void {
-    this.store.dispatch(loadProducts())
-  }
+  ngOnInit(): void { }
 
 }

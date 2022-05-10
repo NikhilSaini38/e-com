@@ -11,13 +11,15 @@ export enum CartStatus {
 export interface CartState {
   status: CartStatus,
   message: string,
-  items: Pick<Product, 'sku'>[]
+  items: Pick<Product, 'sku'>[],
 }
 
 const cartInitState: CartState = {
   status: CartStatus.PENDING,
   message: "Cart has no Items",
-  items: []
+  items: [
+    { sku: "671695659-X" }
+  ]
 }
 
 export const cartStoreReducer = createReducer(
@@ -26,7 +28,9 @@ export const cartStoreReducer = createReducer(
     addItemToCart,
     (state: CartState, payload) => ({
       ...state,
-      items: [...state.items, payload]
+      items: [...state.items, payload],
+      status: CartStatus.SUCCESS,
+      message: "Adding to Cart"
     })
   )
 )
