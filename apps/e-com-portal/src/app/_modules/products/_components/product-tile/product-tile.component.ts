@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { firstValueFrom } from 'rxjs';
 import { ModalService } from './../../../../_services/modal.service';
 import { AppState } from './../../../../_store/app.state';
 import { addItemToCart } from './../../../../_store/cart/cart.actions';
@@ -25,8 +26,11 @@ export class ProductTileComponent implements OnInit {
     this.product$ = this._store.select(selectProductBySku(this.sku));
   }
 
-  addToCart(productName: string) {
-    this._store.dispatch(addItemToCart({ sku: this.sku }));
-    this._modalSvc.open(productName);
+  async addToCart() {
+    const state = await firstValueFrom(this.product$);
+    if (state) {
+      this._store.dispatch(addItemToCart({ sku: this.sku }));
+      this._modalSvc.open(state.name);
+    }
   }
 }

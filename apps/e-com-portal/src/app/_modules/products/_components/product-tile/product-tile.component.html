@@ -13,6 +13,6 @@
   </h5>
 </div>
 <div class="button-group f-row">
-  <button class="primary" *ngIf="product$|async as product" (click)="addToCart(product.name)">Add to Cart</button>
+  <button class="primary" (click)="addToCart()">Add to Cart</button>
   <button>Compare</button>
 </div>
