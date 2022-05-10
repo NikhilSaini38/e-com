@@ -1,1 +1,4 @@
-<ecp-cart-item *ngFor="let cartItem of cartItems|async " [sku]="cartItem.sku"></ecp-cart-item>
+<ng-container *ngIf="cartItems|async as items">
+  <h2 *ngIf="items.length<1">No Items in the cart. Please add some items from products page</h2>
+  <ecp-cart-item *ngFor="let cartItem of items" [sku]="cartItem.sku"></ecp-cart-item>
+</ng-container>
