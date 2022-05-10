@@ -1,12 +1,24 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { beforeEach, describe, expect, it } from '@jest/globals';
+import { StoreModule } from '@ngrx/store';
+import { storeFeatures } from './../../_store/app.state';
+import { ModalComponent } from './../modal/modal.component';
+import { PrimaryNavbarComponent } from './../primary-navbar/primary-navbar.component';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      imports: [
+        RouterTestingModule,
+        StoreModule.forRoot(storeFeatures)
+      ],
+      declarations: [
+        PrimaryNavbarComponent,
+        ModalComponent,
+        AppComponent
+      ],
     }).compileComponents();
   });
 
@@ -20,14 +32,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('e-com-portal');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome e-com-portal'
-    );
   });
 });

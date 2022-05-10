@@ -17,9 +17,7 @@ export interface CartState {
 const cartInitState: CartState = {
   status: CartStatus.PENDING,
   message: "Cart has no Items",
-  items: [
-    { sku: "671695659-X" }
-  ]
+  items: []
 }
 
 export const cartStoreReducer = createReducer(
