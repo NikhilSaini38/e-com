@@ -51,9 +51,16 @@
       color: var(--theme-color-secondary);
       transition: all 200ms;
 
+      &:hover{
+        background-color: var(--theme-color-tertiary);
+      }
+
       &.primary{
         background-color: var(--theme-color-primary);
         color: var(--theme-color-white);
+        &:hover{
+          background-color: var(--theme-color-primary-lighter);
+        }
       }
 
       &:first-of-type{
