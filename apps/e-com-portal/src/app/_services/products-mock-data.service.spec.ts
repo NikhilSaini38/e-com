@@ -1,6 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from '@jest/globals';
-import { lastValueFrom } from 'rxjs';
 import { ProductsMockDataService } from './products-mock-data.service';
 
 
@@ -8,7 +8,9 @@ describe('ProductsMockDataService', () => {
   let service: ProductsMockDataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule]
+    });
     service = TestBed.inject(ProductsMockDataService);
   });
 
@@ -17,7 +19,6 @@ describe('ProductsMockDataService', () => {
   });
 
   it('should return MockData', async () => {
-    const mockData = await lastValueFrom(service.getMockData())
-    expect(mockData.length).toBeGreaterThan(0)
+    service.getMockData().subscribe(mockData => expect(mockData.length).toBeGreaterThan(0))
   })
 });
