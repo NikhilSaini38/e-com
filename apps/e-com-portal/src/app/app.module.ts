@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
@@ -25,6 +26,7 @@ const EFFECTS = [ProductsStoreEffects, CartEffects];
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     HomeModule,
     ProductsModule,
